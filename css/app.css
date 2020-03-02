@@ -1,0 +1,39 @@
+body{
+    overflow-x: scroll;
+}
+
+nav {
+    display: flex;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    justify-content: space-between;
+}
+
+nav h2 {
+    margin: 0
+}
+
+nav a{
+    color: black;
+}
+
+nav a:first-child {
+    margin-right: 1rem;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
