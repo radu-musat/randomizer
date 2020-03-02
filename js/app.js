@@ -6,7 +6,8 @@ let totalColegi = colegi.length;
 let numbers = [];
 let numbers2 = [];
 
-let button = document.querySelector("button");
+let randomizeBtn = document.querySelector("#randomize");
+let deleteBtn = document.querySelector('#clear')
 
 let colegiCuId = [];
 // init();
@@ -20,10 +21,16 @@ async function initWithDB() {
 }
 
 
-button.addEventListener('click', function (event) {
+randomizeBtn.addEventListener('click', function (event) {
     event.preventDefault();
     randomize();
 })
+
+deleteBtn.addEventListener('click', function (event) {
+    event.preventDefault();
+    clearTable();
+})
+
 
 async function randomize() {
     let container = document.querySelector('table');
@@ -35,7 +42,8 @@ async function randomize() {
 
     let newDB = JSON.stringify(colegiCuId);
 
-    var response = await fetch('https://randomizer-79de1.firebaseio.com/.json', {
+
+    let response = await fetch('https://randomizer-79de1.firebaseio.com/.json', {
         method: "PUT",
         body: newDB
     });
@@ -51,6 +59,17 @@ async function randomize() {
         `
     initWithDB();
 }
+
+
+
+async function clearTable() {
+    let response1 = await fetch('https://randomizer-79de1.firebaseio.com/.json', {
+        method: "DELETE",
+    });
+    location.reload();
+}
+
+
 
 
 function draw(colegiList) {
